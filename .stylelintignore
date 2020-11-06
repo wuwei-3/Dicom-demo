@@ -1,0 +1,5 @@
+//这进而的配置是在编译时过滤掉不验证的目录或文件 
+src/styles
+src/icon
+src/views/index.vue
+public/index.html
