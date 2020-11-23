@@ -4,7 +4,7 @@
  * @Autor: wuwei3
  * @Date: 2020-08-12 14:29:59
  * @LastEditors: Please set LastEditors
- * @LastEditTime: 2020-11-03 10:06:27
+ * @LastEditTime: 2020-11-19 10:19:46
 -->
 <template>
   <div class="dicom-main">
@@ -17,8 +17,20 @@
         <!-- 工具集 -->
         <div :class="['t-tools']">
           <div class="s-title">
-            <i class="iconfont iconMRIjiancha"></i>
-            <span>3D影像在线查看</span>
+            <el-upload
+              class="upload-demo"
+              ref="upload"
+              action="https://jsonplaceholder.typicode.com/posts/"
+              :on-change="handlePreview"
+              :file-list="fileList"
+              :auto-upload="false"
+              :show-file-list="false"
+            >
+              <div slot="trigger" class="e-upload">
+                <i class="iconfont iconMRIjiancha"></i>
+                <span>3D影像在线查看</span>
+              </div>
+            </el-upload>
           </div>
           <div class="s-box">
             <i class="iconfont iconmenu-list" @click="recordTab"></i>
@@ -387,7 +399,7 @@ export default {
         },
       ],
       /* 在线影像数据地址：解决本地文件跨域 */
-      url: '/mri/dcm/bold_2x2x2_s4_tr1500_P2A_195_08.nii.gz',
+      url: '/service/dcm/bold_2x2x2_s4_tr1500_P2A_195_08.nii.gz',
       // url: '/service/dcm/t1_mprage_sag_0.8iso_p2_64ch_02.nii.gz',
       imageList: {}, // 存取所有图片集合
       percentage: 0, // 进度
@@ -524,6 +536,14 @@ export default {
     });
   },
   methods: {
+    /**
+     * @description: 文件上传钩子
+     * @param {*}
+     * @return {*}
+     */
+    handlePreview() {
+      // this.initNiftiData(file);
+    },
     /**
      * @description: 解决十字线不准缺，默认图层加载时切换全部图层
      * @param {*}
@@ -2576,6 +2596,9 @@ export default {
           i {
             font-size: 40px;
             margin-right: 6px;
+          }
+          .e-upload {
+            @include fh;
           }
         }
         .s-volume {
