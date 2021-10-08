@@ -20,7 +20,7 @@
 
 实现 ：vue + cornerstone ，地址：https://github.com/cornerstonejs
 
-线上体验地址：http://172.31.129.89:8800/mri/#/
+线上体验地址：https://wuwei.work/wb-mri/#/
 ```
 
 ## Project setup
